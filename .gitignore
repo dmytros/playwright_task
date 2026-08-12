@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.env
+.linkedin_storage.json
+.linkedin_profile/
+.linkedin_browser_profile/
+feed_debug*.png
+login_vnc.png
+*.pyc
+.pytest_cache/
+.DS_Store

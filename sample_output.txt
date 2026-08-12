@@ -1,0 +1,85 @@
+[boot] level=all headless=False
+[boot] comments are never posted
+[boot] launching Chromium…
+[auth] opening feed…
+[auth] already logged in
+[feed] loading home feed…
+[feed] url=https://www.linkedin.com/feed/
+[feed] pass 1/4 — 6 posts (+6 new, batch=6)
+[feed] pass 2/4 — 6 posts (+0 new, batch=6)
+[feed] pass 3/4 — 6 posts (+0 new, batch=6)
+[feed] no new posts — stop scrolling
+[feed] parsed 6 posts
+
+=== LEVEL 1 — like interesting posts (6 of 6) ===
+[1/6] liking 'Yuliia Semeniuk'…
+    → liked | score=6.9
+    'Head of People Ops & Recruitment at Honeycomb Software | Technical hiring for AI & B2B SaaS: Senior Engineers, Applied AI, FDE & Solutions Engineering I’ve just started working on one of those searche'
+    why: has_substance, interests=engineering,architecture,product, signal_words
+[2/6] liking 'Ryan Bulkoski'…
+    → liked | score=5.562
+    'Co-Global Managing Partner, AI & Technology Officers Practice at Heidrick and Struggles | Artificial Intelligence and Data Promoted by Heidrick & Struggles Physical AI will make some of the hardest pr'
+    why: has_substance, interests=engineering,leadership,ai
+[3/6] liking 'Fabien Potencier'…
+    → liked | score=4.5
+    "Reviewing agent code line by line is a trap Not long ago, I wrote here that I read every line an agent writes for me, because I'm the one responsible for it. I meant it. But it was a shortcut. Once I "
+    why: has_substance, interests=ai, signal_words
+[4/6] liking 'Ruby on Rails'…
+    → liked | score=3.657
+    '🤔 Every Rails developer writes resources :users. But very few know how Rails actually decides to execute UsersController#show. I explored what happens behind the scenes—from Puma → Rack → Middleware →'
+    why: has_substance, interests=engineering,ai
+[5/6] liking 'Info-communications'…
+    → liked | score=1.055
+    'What can you expect in collaboration with Sumitomo Electric? We are dedicated to always standing by our customers, creating the future together.\u200b With this mission always in mind, we will take every o'
+    why: has_substance
+[6/6] liking 'Gabrielle Wilson'…
+    → liked | score=0.583
+    'Senior Payments Analyst at Peoples Group I’m happy to share that I’ve been promoted to the role of Senior Payments Analyst at Peoples Group. Grateful for the support of my team! Starting a new positio'
+    why: has_substance
+
+=== LEVEL 2 — draft comments (NOT posted) ===
+Selection: highest scores among liked posts (substance + interest keywords − engagement bait).
+[1/3] drafting via Ollama (may take 5–30s)…
+
+[1] Yuliia Semeniuk | score=6.9 | via=ollama
+    post: 'Head of People Ops & Recruitment at Honeycomb Software | Technical hiring for AI & B2B SaaS: Senior Engineers, Applied AI, FDE & Solutions Engineering I’ve just started working on one of those searche'
+    draft: "As you search for a DevOps Solution Architect, I'm reminded that this role requires more than just technical skills - it demands vision and leadership ability to navigate complex client requests and drive strategic architecture decisions, giving the team member real voice and influence in driving growth and innovation."
+[2/3] drafting via Ollama (may take 5–30s)…
+
+[2] Ryan Bulkoski | score=5.562 | via=ollama
+    post: 'Co-Global Managing Partner, AI & Technology Officers Practice at Heidrick and Struggles | Artificial Intelligence and Data Promoted by Heidrick & Struggles Physical AI will make some of the hardest pr'
+    draft: 'I found this perspective on the talent gap for physical AI leaders particularly insightful. The shift towards integrating AI into manufacturing and logistics underscores the need for cross-functional leadership and a deeper understanding of operational complexities." - Ryan Bulkoski'
+[3/3] drafting via Ollama (may take 5–30s)…
+
+[3] Fabien Potencier | score=4.5 | via=ollama
+    post: "Reviewing agent code line by line is a trap Not long ago, I wrote here that I read every line an agent writes for me, because I'm the one responsible for it. I meant it. But it was a shortcut. Once I "
+    draft: 'As Fabien, I found his new approach to reviewing agent code refreshingly honest - acknowledging that reading every line was initially a shortcut that became impractical when running multiple agents in parallel.'
+
+=== LEVEL 3 — profile-aware drafts (NOT posted) ===
+Same selection rule as L2, plus a best-effort profile peek (headline/about). LinkedIn A/B and lazy sections make this flaky.
+[1/3] opening profile…
+[1/3] drafting via Ollama…
+
+[1] Yuliia Semeniuk | score=6.9 | via=ollama
+    post: 'Head of People Ops & Recruitment at Honeycomb Software | Technical hiring for AI & B2B SaaS: Senior Engineers, Applied AI, FDE & Solutions Engineering I’ve just started working on one of those searche'
+    headline: ''
+    friction: missing: headline, about
+    draft: 'Your post highlights an often-overlooked critical role in tech recruitment - finding DevOps Solution Architects who can navigate ambiguity and deliver holistic solutions. This position requires not only technical expertise but also strategic vision and collaboration skills.'
+[2/3] opening profile…
+[2/3] drafting via Ollama…
+
+[2] Ryan Bulkoski | score=5.562 | via=ollama
+    post: 'Co-Global Managing Partner, AI & Technology Officers Practice at Heidrick and Struggles | Artificial Intelligence and Data Promoted by Heidrick & Struggles Physical AI will make some of the hardest pr'
+    headline: ''
+    friction: missing: headline, about
+    draft: "As someone who's seen firsthand the talent gap in physical AI implementation, I think Ryan brings a much-needed perspective to this challenge - pairing technical expertise with operational leaders is crucial for success."
+[3/3] opening profile…
+[3/3] drafting via Ollama…
+
+[3] Fabien Potencier | score=4.5 | via=ollama
+    post: "Reviewing agent code line by line is a trap Not long ago, I wrote here that I read every line an agent writes for me, because I'm the one responsible for it. I meant it. But it was a shortcut. Once I "
+    headline: ''
+    friction: missing: headline, about
+    draft: 'Reviewing agent code from a higher level makes sense - not skimming, but asking about outcome, tests, abstractions, and evolution potential. This approach leverages questions to assess value rather than manual line-by-line code review.'
+
+[session] saved → .linkedin_storage.json
