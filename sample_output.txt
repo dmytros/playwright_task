@@ -1,85 +1,90 @@
 [boot] level=all headless=False
 [boot] comments are never posted
+[INFO] linkedin.boot: config loaded from config/*.yaml + .env
 [boot] launching Chromium…
 [auth] opening feed…
 [auth] already logged in
 [feed] loading home feed…
 [feed] url=https://www.linkedin.com/feed/
-[feed] pass 1/4 — 6 posts (+6 new, batch=6)
-[feed] pass 2/4 — 6 posts (+0 new, batch=6)
-[feed] pass 3/4 — 6 posts (+0 new, batch=6)
+[feed] pass 1/4 — 7 posts (+7 new, batch=7)
+[feed] pass 2/4 — 7 posts (+0 new, batch=7)
+[feed] pass 3/4 — 7 posts (+0 new, batch=7)
 [feed] no new posts — stop scrolling
-[feed] parsed 6 posts
+[feed] parsed 7 posts
 
-=== LEVEL 1 — like interesting posts (6 of 6) ===
-[1/6] liking 'Yuliia Semeniuk'…
-    → liked | score=6.9
-    'Head of People Ops & Recruitment at Honeycomb Software | Technical hiring for AI & B2B SaaS: Senior Engineers, Applied AI, FDE & Solutions Engineering I’ve just started working on one of those searche'
-    why: has_substance, interests=engineering,architecture,product, signal_words
-[2/6] liking 'Ryan Bulkoski'…
-    → liked | score=5.562
-    'Co-Global Managing Partner, AI & Technology Officers Practice at Heidrick and Struggles | Artificial Intelligence and Data Promoted by Heidrick & Struggles Physical AI will make some of the hardest pr'
-    why: has_substance, interests=engineering,leadership,ai
-[3/6] liking 'Fabien Potencier'…
-    → liked | score=4.5
-    "Reviewing agent code line by line is a trap Not long ago, I wrote here that I read every line an agent writes for me, because I'm the one responsible for it. I meant it. But it was a shortcut. Once I "
-    why: has_substance, interests=ai, signal_words
-[4/6] liking 'Ruby on Rails'…
-    → liked | score=3.657
-    '🤔 Every Rails developer writes resources :users. But very few know how Rails actually decides to execute UsersController#show. I explored what happens behind the scenes—from Puma → Rack → Middleware →'
-    why: has_substance, interests=engineering,ai
-[5/6] liking 'Info-communications'…
-    → liked | score=1.055
-    'What can you expect in collaboration with Sumitomo Electric? We are dedicated to always standing by our customers, creating the future together.\u200b With this mission always in mind, we will take every o'
+=== LEVEL 1 — like interesting posts (7 of 7) ===
+[1/7] liking 'Olga Shatokha'…
+    → liked | score=4.9
+    "At Bee's Knees, we're helping Max Joule, an early-stage battery technology company, hire a Field Engineer & Business Development - the person who'll build their first presence in Ukraine. Max Joule de"
+    why: has_substance, interests=product,ai
+[2/7] liking 'Olga Malysh'…
+    → liked | score=4.22
+    'Continuing the Maiascope story from last week ✨ Our team is very thankful for all the reactions, thoughtful questions, and interest we received. We’re proud to share that we already have several beta '
+    why: has_substance, interests=product,ai
+[3/7] liking 'MyDefence'…
+    → already_liked | score=3.7
+    'When drones threaten the mission, there is no time for complexity. On today’s battlefield, hesitation costs lives. Soldiers need protection that matches the speed and chaos of modern threats. At MyDef'
+    why: has_substance, interests=ai
+[4/7] liking 'Frontend Senior Technical Team Lead – Trinetix'…
+    → liked | score=2.375
+    'Не дуже великі, в основному QA і фронтенд, але серед цих людей опинився і мій товариш (ні, не той, для якого я шукав бронювання 😊 ). Він потужний Senior Angular developer, також має досвід Team Lead. '
     why: has_substance
-[6/6] liking 'Gabrielle Wilson'…
-    → liked | score=0.583
-    'Senior Payments Analyst at Peoples Group I’m happy to share that I’ve been promoted to the role of Senior Payments Analyst at Peoples Group. Grateful for the support of my team! Starting a new positio'
+[5/7] liking 'Hackster.io'…
+    → liked | score=2.17
+    'The PSOC™ Edge City journey continues. 🌃 Keep moving through the learning path, explore deeper technical modules, and build the skills that will help you prepare for the Boss Battle in the AI Arena. R'
+    why: has_substance, interests=ai
+[6/7] liking 'Jens-Christian Madsen'…
+    → liked | score=0.385
+    'Senior Category Manager - The LEGO Group Senior Procurement Manager, HBW and Automated Logistics the LEGO Group Billund Alexander Shevchenko and 24 others'
+    why: has_substance
+[7/7] liking 'Anastasiia Moisieienko’s'…
+    → liked | score=0.365
+    'Anastasiia Moisieienko completed 10 years at Intellias 8 Congratulations! 🎉 🎉 Excited for you 👏 Well deserved, Anastasiia Wishing you the best 🎉🎉🎉'
     why: has_substance
 
 === LEVEL 2 — draft comments (NOT posted) ===
 Selection: highest scores among liked posts (substance + interest keywords − engagement bait).
 [1/3] drafting via Ollama (may take 5–30s)…
 
-[1] Yuliia Semeniuk | score=6.9 | via=ollama
-    post: 'Head of People Ops & Recruitment at Honeycomb Software | Technical hiring for AI & B2B SaaS: Senior Engineers, Applied AI, FDE & Solutions Engineering I’ve just started working on one of those searche'
-    draft: "As you search for a DevOps Solution Architect, I'm reminded that this role requires more than just technical skills - it demands vision and leadership ability to navigate complex client requests and drive strategic architecture decisions, giving the team member real voice and influence in driving growth and innovation."
+[1] Olga Shatokha | score=4.9 | via=ollama
+    post: "At Bee's Knees, we're helping Max Joule, an early-stage battery technology company, hire a Field Engineer & Business Development - the person who'll build their first presence in Ukraine. Max Joule de"
+    draft: 'Exciting opportunity for those with a passion for technical innovation and business growth - Max Joule is looking to hire a dual-qualified Field Engineer & Business Development expert in Ukraine, offering a unique blend of hands-on engineering experience and commercial acumen.'
 [2/3] drafting via Ollama (may take 5–30s)…
 
-[2] Ryan Bulkoski | score=5.562 | via=ollama
-    post: 'Co-Global Managing Partner, AI & Technology Officers Practice at Heidrick and Struggles | Artificial Intelligence and Data Promoted by Heidrick & Struggles Physical AI will make some of the hardest pr'
-    draft: 'I found this perspective on the talent gap for physical AI leaders particularly insightful. The shift towards integrating AI into manufacturing and logistics underscores the need for cross-functional leadership and a deeper understanding of operational complexities." - Ryan Bulkoski'
+[2] Olga Malysh | score=4.22 | via=ollama
+    post: 'Continuing the Maiascope story from last week ✨ Our team is very thankful for all the reactions, thoughtful questions, and interest we received. We’re proud to share that we already have several beta '
+    draft: "I'd love to know more about what a typical day looks like for one of our beta testers - has it changed your workflow or made any significant impact on your productivity?"
 [3/3] drafting via Ollama (may take 5–30s)…
 
-[3] Fabien Potencier | score=4.5 | via=ollama
-    post: "Reviewing agent code line by line is a trap Not long ago, I wrote here that I read every line an agent writes for me, because I'm the one responsible for it. I meant it. But it was a shortcut. Once I "
-    draft: 'As Fabien, I found his new approach to reviewing agent code refreshingly honest - acknowledging that reading every line was initially a shortcut that became impractical when running multiple agents in parallel.'
+[3] MyDefence | score=3.7 | via=ollama
+    post: 'When drones threaten the mission, there is no time for complexity. On today’s battlefield, hesitation costs lives. Soldiers need protection that matches the speed and chaos of modern threats. At MyDef'
+    draft: "At MyDefence, we're creating CUAS technology that mirrors the speed and chaos of modern threats, giving soldiers a reliable edge in life-or-death situations where every second counts."
 
 === LEVEL 3 — profile-aware drafts (NOT posted) ===
 Same selection rule as L2, plus a best-effort profile peek (headline/about). LinkedIn A/B and lazy sections make this flaky.
 [1/3] opening profile…
 [1/3] drafting via Ollama…
 
-[1] Yuliia Semeniuk | score=6.9 | via=ollama
-    post: 'Head of People Ops & Recruitment at Honeycomb Software | Technical hiring for AI & B2B SaaS: Senior Engineers, Applied AI, FDE & Solutions Engineering I’ve just started working on one of those searche'
+[1] Olga Shatokha | score=4.9 | via=ollama
+    post: "At Bee's Knees, we're helping Max Joule, an early-stage battery technology company, hire a Field Engineer & Business Development - the person who'll build their first presence in Ukraine. Max Joule de"
     headline: ''
     friction: missing: headline, about
-    draft: 'Your post highlights an often-overlooked critical role in tech recruitment - finding DevOps Solution Architects who can navigate ambiguity and deliver holistic solutions. This position requires not only technical expertise but also strategic vision and collaboration skills.'
+    draft: "I think I've identified a valuable opportunity to help Max Joule succeed in Ukraine - combining technical expertise with business acumen is a winning combination, especially for an early-stage company."
 [2/3] opening profile…
 [2/3] drafting via Ollama…
 
-[2] Ryan Bulkoski | score=5.562 | via=ollama
-    post: 'Co-Global Managing Partner, AI & Technology Officers Practice at Heidrick and Struggles | Artificial Intelligence and Data Promoted by Heidrick & Struggles Physical AI will make some of the hardest pr'
+[2] Olga Malysh | score=4.22 | via=ollama
+    post: 'Continuing the Maiascope story from last week ✨ Our team is very thankful for all the reactions, thoughtful questions, and interest we received. We’re proud to share that we already have several beta '
     headline: ''
     friction: missing: headline, about
-    draft: "As someone who's seen firsthand the talent gap in physical AI implementation, I think Ryan brings a much-needed perspective to this challenge - pairing technical expertise with operational leaders is crucial for success."
+    draft: "I was impressed by the depth of feedback from our beta users so far, it's amazing how much can be learned through honest testing."
 [3/3] opening profile…
 [3/3] drafting via Ollama…
 
-[3] Fabien Potencier | score=4.5 | via=ollama
-    post: "Reviewing agent code line by line is a trap Not long ago, I wrote here that I read every line an agent writes for me, because I'm the one responsible for it. I meant it. But it was a shortcut. Once I "
+[3] MyDefence | score=3.7 | via=ollama
+    post: 'When drones threaten the mission, there is no time for complexity. On today’s battlefield, hesitation costs lives. Soldiers need protection that matches the speed and chaos of modern threats. At MyDef'
     headline: ''
     friction: missing: headline, about
-    draft: 'Reviewing agent code from a higher level makes sense - not skimming, but asking about outcome, tests, abstractions, and evolution potential. This approach leverages questions to assess value rather than manual line-by-line code review.'
+    draft: "As I read through MyDefence's CUAS technology, one thing stands out - their commitment to putting soldiers first. By designing solutions that match the speed and chaos of modern threats, they're helping protect lives without slowing down operations."
 
 [session] saved → .linkedin_storage.json

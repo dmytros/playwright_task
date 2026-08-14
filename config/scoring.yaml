@@ -1,0 +1,37 @@
+# Externalized interestingness rules / weights.
+# New keywords or bait patterns → edit here, no code change.
+
+weights:
+  substance_cap: 2.5
+  substance_divisor: 400
+  too_short_penalty: 1.5
+  min_substance_chars: 80
+  interest_per_hit: 1.2
+  interest_hit_cap: 3
+  signal_bonus: 0.8
+  bait_penalty: 2.0
+
+interest_keywords:
+  - engineering
+  - architecture
+  - product
+  - leadership
+  - ai
+  - career
+
+signal_patterns:
+  - '\b(learned|trade[- ]?off|architecture|postmortem|shipped|migrated)\b'
+  - '\b(lesson|mistake|failure|framework|mental model)\b'
+
+bait_patterns:
+  - '\bcomment\s+["'']?yes["'']?\b'
+  - '\brepost\s+if\b'
+  - '\btag\s+someone\b'
+  - '\bdm\s+me\s+for\b'
+
+# Optional alternate scoring strategies (factory selects by name).
+strategies:
+  default: substance_interest
+  available:
+    - substance_interest
+    - length_only

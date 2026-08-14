@@ -1,8 +1,10 @@
 from __future__ import annotations
 
-from linkedin.draft import draft_comment
-from linkedin.score import Post, top_posts
-from linkedin.ui import LinkedIn
+from linkedin.client import LinkedIn
+from linkedin.enums import LikeOutcome
+from linkedin.models import Post
+from linkedin.scoring import top_posts
+from linkedin.services.draft import draft_comment
 
 
 def level1(li: LinkedIn, page) -> list[tuple[Post, str]]:
@@ -10,8 +12,12 @@ def level1(li: LinkedIn, page) -> list[tuple[Post, str]]:
     if not posts:
         raise RuntimeError("Parsed 0 posts — are you logged in? Did selectors drift?")
 
-    picks = top_posts(posts, li.settings.interests, li.settings.like_target)
-    # Virtualized feed unmounts off-screen cards — jump back to top before likes.
+    picks = top_posts(
+        posts,
+        li.settings.interests,
+        li.settings.like_target,
+        scoring_cfg=li.settings.scoring,
+    )
     try:
         page.evaluate("window.scrollTo(0, 0)")
         page.wait_for_timeout(600)
@@ -31,7 +37,8 @@ def level1(li: LinkedIn, page) -> list[tuple[Post, str]]:
 
 
 def _top_liked(liked: list[tuple[Post, str]], n: int) -> list[Post]:
-    ok = [p for p, outcome in liked if outcome in {"liked", "already_liked"}]
+    ok_values = {LikeOutcome.LIKED.value, LikeOutcome.ALREADY_LIKED.value}
+    ok = [p for p, outcome in liked if outcome in ok_values]
     pool = ok or [p for p, _ in liked]
     n = max(2, min(n, 3))
     return sorted(pool, key=lambda p: p.score, reverse=True)[:n]

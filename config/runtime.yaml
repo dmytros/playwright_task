@@ -1,0 +1,51 @@
+# Runtime parameters (non-secret). Override via env where noted in settings.
+
+browser:
+  viewport: { width: 1280, height: 900 }
+  locale: en-US
+  slow_mo_storage: 20
+  slow_mo_persistent: 40
+  default_timeout_ms: 60000
+  user_agent: >-
+    Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
+    (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+  launch_args:
+    - "--disable-blink-features=AutomationControlled"
+    - "--no-sandbox"
+    - "--disable-dev-shm-usage"
+
+auth:
+  wait_timeout_s: 1200
+  poll_interval_s: 3.0
+  challenge_url_parts:
+    - /checkpoint/
+    - /challenge
+    - login-submit
+  blocked_url_parts:
+    - /login
+    - authwall
+    - /checkpoint/
+    - /challenge
+
+engagement:
+  like_target: 10
+  comment_pick: 3
+  like_attempts: 4
+
+draft:
+  system_prompt: >-
+    Write a short LinkedIn comment like a thoughtful senior engineer.
+    1–3 sentences, max ~280 chars. Specific, no emojis/hashtags,
+    no 'Great post!'. Output only the comment.
+  max_post_chars: 1000
+  max_comment_chars: 320
+  ollama_timeout_s: 180
+  providers:
+    - ollama
+    - local_fallback
+
+resilience:
+  retries: 3
+  backoff_base_s: 0.4
+  backoff_jitter_s: 0.3
+  log_level: INFO

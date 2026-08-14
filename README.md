@@ -95,28 +95,35 @@ First run may need interactive 2FA (headless is off by default). Session is save
 ## Layout
 
 ```
-main.py                 # CLI entrypoint
+main.py
+config/
+  parsing.yaml          # selectors, parser strategies, pauses
+  scoring.yaml          # interestingness rules / weights
+  runtime.yaml          # retries, browser, draft providers
 linkedin/
-  settings.py           # .env + selectors
-  score.py              # interestingness
-  ui.py                 # login / feed / like
-  draft.py              # Ollama drafts (never posts)
-  levels.py             # Level 1 / 2 / 3
-sample_output.txt       # real run stdout
+  client.py             # facade (browser/auth/feed/like)
+  settings.py           # .env + YAML merge
+  enums.py / models.py
+  resilience.py         # logging, pause, retry
+  parsers/              # config-driven strategies + factory
+  data/                 # FeedSource / ProfileSource abstraction
+  services/             # browser, auth, engagement, draft
+  scoring.py            # scoring strategies
+  levels.py
+sample_output.txt
 requirements.txt
 .env.example
-.gitignore
 ```
 
-## Further improvements
+## Architecture notes
 
-As additional improvements, I would consider the following:
+Implemented from the earlier “further improvements” list:
 
-- **Config-driven parsing** — a generic parser that, instead of hardcoded pauses and scenarios, reads required content and returns a structured result based on configuration.
-- **Externalized parsing rules** — move rules and parameters into a separate configuration layer (or DB) so new cases can be added without changing code.
-- **Runtime configuration** — keep most runtime parameters in config files or a database, depending on whether they need to change dynamically while the app is running.
-- **Clearer module boundaries** — split into classes, services, configuration modules, and Enums to reduce coupling, simplify navigation, and avoid circular dependencies.
-- **Factory for handlers/parsers** — create the right handler or parser depending on the source or data type.
-- **Data-access abstraction** — isolate business logic from a specific source, API, or data format.
-- **Resilience** — centralized error handling, logging, and retries for unstable external sources (LinkedIn DOM drift, timeouts).
-- **Strategy for complex cases** — plug in different parsing rules without changing core logic.
+- **Config-driven parsing** — `parsers/` builds a chain from `config/parsing.yaml` and returns structured `ParsedCard` / `Post` objects.
+- **Externalized rules** — DOM selectors, pauses, scoring patterns, and runtime knobs live in YAML (not hardcoded).
+- **Runtime configuration** — `config/runtime.yaml` + `.env` for secrets and overrides (`LINKEDIN_LIKE_TARGET`, `LINKEDIN_COMMENT_PICK`, …).
+- **Clearer module boundaries** — Enums, models, services, parsers, data layer; `LinkedIn` is a thin facade.
+- **Factory** — `create_feed_parser`, `create_feed_source`, draft/scoring strategy registries.
+- **Data-access abstraction** — `FeedSource` / `ProfileSource` isolate business logic from Playwright DOM details.
+- **Resilience** — centralized logging + `retry` helper; like attempts and draft provider fallbacks are config-driven.
+- **Strategy** — plug in alternate parsers / scoring / draft providers without changing core orchestration.
