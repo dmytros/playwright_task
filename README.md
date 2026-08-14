@@ -120,3 +120,5 @@ As additional improvements, I would consider the following:
 - **Data-access abstraction** — isolate business logic from a specific source, API, or data format.
 - **Resilience** — centralized error handling, logging, and retries for unstable external sources (LinkedIn DOM drift, timeouts).
 - **Strategy for complex cases** — plug in different parsing rules without changing core logic.
+
+These improvements you can find there https://github.com/dmytros/playwright_task/pull/1
