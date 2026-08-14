@@ -1,0 +1,94 @@
+# Externalized LinkedIn DOM parsing rules.
+# Add / tweak cases here without changing Python code.
+
+selectors:
+  email: "input#username"
+  password: "input#password"
+  submit: 'button[type="submit"]'
+  nav: '[data-testid="primary-nav"], nav.global-nav, #global-nav'
+  post: >-
+    [data-view-name="feed-full-update"],
+    [data-testid="mainFeed"] [role="listitem"],
+    div.feed-shared-update-v2[data-urn],
+    article[data-urn]
+  text: >-
+    [data-view-name="feed-commentary"],
+    .update-components-text,
+    .feed-shared-update-v2__description
+  author: >-
+    .update-components-actor__title span[aria-hidden="true"],
+    .update-components-actor__name span[aria-hidden="true"],
+    [data-view-name="feed-actor"],
+    [data-view-name="feed-header-text"]
+  author_link: 'a[href*="/in/"], a[href*="/company/"]'
+  like: >-
+    button[aria-label*="Reaction button state"],
+    [data-view-name="reaction-button"],
+    button[aria-label*="Like"][aria-pressed="false"]
+  liked: >-
+    button[aria-label*="Reaction button state"]:not([aria-label*="no reaction"]),
+    button[aria-label*="Like"][aria-pressed="true"]
+  headline: "div.text-body-medium.break-words"
+  about: "#about ~ div .inline-show-more-text"
+  main_feed: '[data-testid="mainFeed"]'
+  feed_ready: >-
+    [data-view-name="feed-full-update"],
+    [data-testid="mainFeed"] [role="listitem"],
+    button[aria-label*="Reaction button state"]
+
+reaction_button_selectors:
+  - 'button[aria-label*="Reaction button state"]'
+  - '[data-view-name="reaction-button"]'
+  - 'button[aria-label*="Like"]'
+  - 'button[aria-label*="Реакц"]'
+  - 'button[aria-label*="Подобається"]'
+
+card_locate_selectors:
+  - '[data-testid="mainFeed"] [role="listitem"]'
+  - '[data-view-name="feed-full-update"]'
+  - "div.feed-shared-update-v2[data-urn], article[data-urn]"
+
+# Parser strategies tried in order (factory builds this chain).
+parsers:
+  - kind: view_name
+    card_selector: '[data-view-name="feed-full-update"]'
+    text_selectors:
+      - '[data-view-name="feed-commentary"]'
+    require_reaction: false
+  - kind: listitem
+    card_selector: '[role="listitem"]'
+    scope_selectors:
+      - '[data-testid="mainFeed"]'
+      - "main"
+    reaction_selector: >-
+      button[aria-label*="Reaction button state"],
+      button[aria-label*="Like"]
+    min_raw_length: 80
+    require_feed_post_prefix: true
+  - kind: legacy
+    card_selector: "div.feed-shared-update-v2[data-urn], article[data-urn]"
+    text_selectors:
+      - '[data-view-name="feed-commentary"]'
+      - ".update-components-text"
+      - ".feed-shared-update-v2__description"
+    urn_attribute: data-urn
+
+pauses:
+  default: [0.4, 1.0]
+  after_nav: [1.5, 2.5]
+  feed_settle: [2.0, 2.8]
+  after_scroll: [0.6, 1.0]
+  before_like: [0.2, 0.4]
+  after_like_click: [0.45, 0.8]
+  like_retry: [0.5, 0.9]
+  profile_settle: [1.0, 1.8]
+  hunt_scroll: [0.35, 0.55]
+
+feed:
+  default_limit: 35
+  max_scrolls: 4
+  stagnant_limit: 2
+  scroll_delta: [700, 1100]
+  wait_attached_ms: 30000
+  hunt_deltas: [-900, -900, 1100, 1100, 1100, 1100]
+  snippet_len: 36

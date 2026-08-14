@@ -5,9 +5,10 @@ import sys
 
 from playwright.sync_api import sync_playwright
 
+from linkedin.client import LinkedIn
 from linkedin.levels import level1, level2, level3
+from linkedin.resilience import get_logger, setup_logging
 from linkedin.settings import load_settings
-from linkedin.ui import LinkedIn
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -20,6 +21,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     settings = load_settings()
+    runtime = settings.runtime.get("resilience") or {}
+    setup_logging(str(runtime.get("log_level") or "INFO"))
+    log = get_logger("boot")
+
     raw = (args.level if args.level is not None else str(settings.level)).strip().lower()
     if raw in {"all", "0"}:
         levels = (1, 2, 3)
@@ -33,6 +38,7 @@ def main(argv: list[str] | None = None) -> int:
 
     print(f"[boot] level={level_label} headless={settings.headless}", flush=True)
     print("[boot] comments are never posted", flush=True)
+    log.info("config loaded from config/*.yaml + .env")
 
     li = LinkedIn(settings)
     try:
@@ -69,6 +75,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1
     except Exception as exc:
         print(f"\n[error] {exc}", file=sys.stderr)
+        log.exception("fatal error")
         return 1
     return 0
 
